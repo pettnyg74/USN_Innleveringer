@@ -8,7 +8,7 @@ Created on Fri Nov  8 13:16:37 2024
 """
 
 kjoreLengde = 20000 # km pr aar
-Trafikkforsikringsavgift = 8.38 # kr pr dag
+trafikkforsikringsavgift = 8.38 # kr pr dag
 dagerPrAar = 365
 
 forsikringElbil = 5000 # kroner pr aar
@@ -23,7 +23,7 @@ bomavgiftBensinbil = 0.3 # kr pr km
 
 # Felles utgifter
 # Trafikkforikringsavgift
-utgiftTrafikkforikringsavgift = Trafikkforsikringsavgift*dagerPrAar
+utgiftTrafikkforikringsavgift = trafikkforsikringsavgift*dagerPrAar
 
 # Elbil
 #BompengeUtgifter
