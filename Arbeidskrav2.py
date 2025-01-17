@@ -70,3 +70,10 @@ def hentLand(land):
 
 print(hentLand(finnLand))
 
+#Oppgave 5
+#Lag funksjon som regner ut areal og omkrets på figur.
+#Args, diameter på sirkel og lengste katet i trekant
+
+
+#Oppgave 6
+#Plott funksjonen 𝑓(𝑥) = −𝑥2 − 5, for x på intervallet [-10,10]
