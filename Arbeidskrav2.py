@@ -110,4 +110,27 @@ print("På gitt figur med a=5 og b=4, er arealet "+str(result[0])+"og omkretsen 
 
 
 #Oppgave 6
-#Plott funksjonen 𝑓(𝑥) = −𝑥2 − 5, for x på intervallet [-10,10]
+#Skriv en kode som plotter funksjonen 𝑓(𝑥) = −𝑥 2 − 5, for x på intervallet [-10,10].
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+def plotFunction():
+    arrayX= []
+    arrayY= []
+    #Opprette x-array
+    xspace=np.linspace(-10,10,200)
+    for x in xspace:      
+        w=-x
+        arrayX.append(x)
+        arrayY.append(math.pow(w,2)-5)
+
+    return arrayX,arrayY
+
+res= plotFunction()
+
+plt.plot(res[0],res[1])
+plt.show()
+
+#Print verdier i arrays
+#print("X:",res[0],"Y:",res[1])
