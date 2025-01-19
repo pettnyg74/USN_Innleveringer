@@ -52,27 +52,61 @@ data = {"Norge":["Oslo", 0.634], "England": ["London", 8.982], "Frankrike": ["Pa
 #b)
 #Gi ut info om land som tastes inn
 #Ber om landet
+
 finnLand = str(input("Skriv inn et land:"))
 
 def hentLand(land):
-    if data.get(finnLand) is not None:
-        landInfo = data.get(finnLand)
+    if data.get(land) is not None:
+
+        landInfo = data.get(land)
         hovedstad = landInfo[0]
-        innbyggere = landInfo[1]
-        out = hovedstad,"er hovedstaden i", finnLand ,"og det er",innbyggere,"mill. innbyggere i", hovedstad
-    
+        innbyggere = str(landInfo[1])
+        out =  str(hovedstad)+" er hovedstaden i "+ land +", og det er "+innbyggere+" mill. innbyggere i "+ hovedstad
+        
     
     else:
         out = "Kunne ikke finne landet du spurte etter.Har du husket stor forbokstav?"
     
-    return str(out)
+    return out
     
 
 print(hentLand(finnLand))
 
+
+#c)
+#Legg til nytt land med hovedstad og innbyggerantall
+nyttLand = str(input("Legg til et land:"))
+nyHovedstad = str(input("Hva er hovedstaden?:"))
+nyttInnbyggerantall = str(input("Antall innbyggere i hovedstaden?:"))
+#Oppdaterer dictionary
+data.update({nyttLand: [nyHovedstad,nyttInnbyggerantall]})
+
+#Print oppdatert dictionary til skjerm
+for x,y in data.items():
+    print(x,y[0],y[1])
+
 #Oppgave 5
 #Lag funksjon som regner ut areal og omkrets på figur.
 #Args, diameter på sirkel og lengste katet i trekant
+import math
+def arealOmkretsFigur(a,b):
+    arealSirkel = math.pi*math.pow(a, 2) 
+    arealTrekant = (b*a/2)
+    #areal av figur
+    arealFigur = (arealSirkel/2)+arealTrekant
+    
+    omkretsSirkel=2*math.pi*a
+    hypotenusTrekant=math.sqrt(math.pow(a, 2)+math.pow(b, 2))
+    #omkrets av figur
+    omkretsFigur = (omkretsSirkel/2)+(b+hypotenusTrekant)
+
+    return arealFigur,omkretsFigur
+
+
+result = arealOmkretsFigur(5, 4)
+
+print("På gitt figur med a=5 og b=4, er arealet "+str(result[0])+"og omkretsen er "+str(result[1]))
+
 
 
 #Oppgave 6
