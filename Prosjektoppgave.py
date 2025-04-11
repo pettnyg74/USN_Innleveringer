@@ -27,6 +27,7 @@ varighet = excelData.loc[:,"Varighet"]
 score = excelData.loc[:,"Tilfredshet"]
 
 '''
+#Test av kode
 print(u_dag)
 print(kl_slett)
 print(varighet)
@@ -36,8 +37,8 @@ print(score)
 #%%
 #DEL B
 #Finne antall henvendelser for ukedager. Visualiser med stolpediagram
-#import numpy as np
 
+#variabler for plot
 mandager=0
 tirsdager=0
 onsdager=0
@@ -73,7 +74,6 @@ print("Korteste samtale varte:", varighet.min())
 
 #%%
 #DEL D
-#regner ut gjennomsnittlig samtaletid basert på alle henvendelser i uke 24.
 
 #Finne total samtalelengde
 totalTid = datetime.timedelta()
@@ -85,11 +85,13 @@ for i in varighet:
 #Finne antall samtaler
 antallSamtaler = excelData["Varighet"].count()
 gjSnittSamtale = totalTid/antallSamtaler
-    
+
+#Svar til skjerm    
 print("Gjennomsnittlig samtalelengde er:" ,gjSnittSamtale)
 
 #%%
 #DEL E
+#De forskjellige skiftene
 skift1=0 #08-10
 skift2=0 #10-12
 skift3=0 #12-14
@@ -113,17 +115,15 @@ for k in kl_slett:
     if sjekkKlokkeslett(k, '14:00','16:00'):
         skift4 +=1
         
-        
-        
-        
+'''
+#Verdier til diagram        
 print("Skift 1:",skift1)
 print("Skift 2:",skift2)
 print("Skift 3:",skift3)
 print("Skift 4:",skift4)
 
 print("TOT: ", (skift1+skift2+skift3+skift4))
-    
-    
+'''  
     
 #arrays for plot
 skift=[skift1,skift2,skift3,skift4]
@@ -136,15 +136,19 @@ plt.show()
 
 #%%
 #DEL F
+#Var for resultat
 scoreNegativ=0 #1-6
 scoreNoytral=0 #7-8
 scorePositiv=0 #9-10
+
+#Funksjon for å løpe gjennom data og sette vars
 def tilfreds(verdi,lav,hoy):
     if verdi>=lav and verdi<=hoy:
         return True
     else:
         return False
     
+#loop for å fordele verdier    
 for t in score:
     if tilfreds(t, 1, 6):
         scoreNegativ +=1
@@ -153,14 +157,15 @@ for t in score:
     if tilfreds(t, 9, 10):
         scorePositiv +=1
 
-
+#test av verdier
 antallTilbakemeldinger = scoreNegativ+scoreNoytral+scorePositiv
+'''
 print("Negative:",scoreNegativ)
 print("Nøytrale:",scoreNoytral)
 print("Positive:",scorePositiv)
 
 print("Antall Tilbakemeldinger:", antallTilbakemeldinger)
-
+'''
 
 NPS = (scorePositiv/antallTilbakemeldinger*100)-(scoreNegativ/antallTilbakemeldinger*100)
 
@@ -174,3 +179,15 @@ innst=["positiv","nøytral","negativ"]
 colors2 = ['blue','red','green','yellow']
 plt.pie(antInnst,colors=colors2, labels=innst, startangle=0, autopct='%1.1f%%')
 plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
